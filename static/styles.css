@@ -1,0 +1,18 @@
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: '#914D76';
+}
+
+#navbar {
+    font-family: 'Quicksand', sans-serif;
+    background-color: #99E1D9;
+    color: black;
+}
+
+.container {
+    background: 'black';
+}
+
+input {
+    width: 100%;
+}

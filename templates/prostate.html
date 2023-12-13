@@ -1,0 +1,37 @@
+{% extends 'index.html' %}
+{%block content%}
+
+    <p class="text-success fw-bold h4">
+        Prediction : {{ prediction }}
+        Accuracy : {{ accuracy }}
+
+    </p>
+    <div class="container mx-auto my-5 border border-success rounded py-5">
+    <form action="/prostate_cancer_predictor" method="post" class="d-flex flex-column justify-content-evenly">
+        <div class="container  d-flex flex-column gap-2 w-50 mb-3">
+        <label for="perimeter">Perimeter:</label><br>
+        <input type="text" id="perimeter" name="perimeter" required><br>
+    </div>
+    <div class="container  d-flex flex-column gap-2 w-50 mb-3">
+        <label for="area">Area:</label><br>
+        <input type="text" id="area" name="area" required><br>
+        </div>
+        <div class="container  d-flex flex-column gap-2 w-50 mb-3">
+        <label for="smoothness">Smoothness:</label><br>
+        <input type="text" id="smoothness" name="smoothness" required><br>
+    </div>
+        
+    <div class="container  d-flex flex-column gap-2 w-50 mb-3">
+        <label for="compactness">Compactness:</label><br>
+        <input type="text" id="compactness" name="compactness" required><br>
+        </div>
+        <div class="container  d-flex flex-column gap-2 w-50 mb-3">
+        <label for="fractal_dimension">Fractal Dimension:</label><br>
+        <input type="text" id="fractal_dimension" name="fractal_dimension" required><br>
+    </div>
+        
+        <button class="btn btn-primary mx-auto w-50">Predict</button>
+    </form>
+
+</div>
+{% endblock %}

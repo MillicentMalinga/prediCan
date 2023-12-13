@@ -1,0 +1,86 @@
+
+{% extends 'index.html' %}
+{% block content %}
+
+   
+<p class="text-success fw-bold h4">
+    Prediction : {{ prediction }}
+</p>
+<p class="text-success fw-bold h4">
+    Accuracy : {{ accuracy }}
+</p>
+<div class="container mx-auto my-5 border border-success rounded p-5 w-50">
+<form action="/cervical_cancer_predictor" method="post" class="d-flex flex-column justify-content-evenly">
+    <label for="age">Age:</label><br>
+    <input type="text" id="age" name="age" required><br>
+
+    <label for="number_of_sexual_partners">Number of Sexual Partners:</label><br>
+    <input type="text" id="number_of_sexual_partners" name="number_of_sexual_partners" required><br>
+
+    <label for="first_sexual_intercourse">First Sexual Intercourse(Age):</label><br>
+    <input type="text" id="first_sexual_intercourse" name="first_sexual_intercourse" required><br>
+
+    <label for="num_of_pregnancies">Number of Pregnancies:</label><br>
+    <input type="text" id="num_of_pregnancies" name="num_of_pregnancies" required><br>
+
+    <label for="smokes">Smokes(1 for Yes - 0 for No):</label><br>
+    <input type="text" id="smokes" name="smokes" required><br>
+
+    <label for="smokes_years">Smokes Number of years:</label><br>
+    <input type="text" id="smokes_years" name="smokes_years" required><br>
+
+    <label for="smokes_packs_year">Smokes (packs/year):</label><br>
+    <input type="text" id="smokes_packs_year" name="smokes_packs_year" required><br>
+
+    <label for="hormonal_contraceptives">Hormonal Contraceptives: 1 for yes/ 0 for No</label><br>
+    <input type="text" id="hormonal_contraceptives" name="hormonal_contraceptives" required><br>
+
+    <label for="hormonal_contraceptives_years">Hormonal Contraceptives (years):</label><br>
+    <input type="text" id="hormonal_contraceptives_years" name="hormonal_contraceptives_years" required><br>
+
+    <label for="iud">IUD: 1 for Yes/ 0 for No</label><br>
+    <input type="text" id="iud" name="iud"><br>
+
+    <label for="iud_years">IUD (years):</label><br>
+    <input type="text" id="iud_years" name="iud_years"><br>
+
+    <label for="stds">STDs:</label><br>
+    <input type="text" id="stds" name="stds"><br>
+
+    <label for="stds_genital_herpes">STDs: Genital Herpes: 1 for Yes/ 0 for No</label><br>
+    <input type="text" id="stds_genital_herpes" name="stds_genital_herpes" required><br>
+
+    <label for="stds_molluscum_contagiosum">STDs: Molluscum Contagiosum: 1 for Yes/ 0 for No</label><br>
+    <input type="text" id="stds_molluscum_contagiosum" name="stds_molluscum_contagiosum" required><br>
+
+    <label for="stds_hepatitis_b">STDs: Hepatitis B:</label><br>
+    <input type="text" id="stds_hepatitis_b" name="stds_hepatitis_b" required><br>
+
+    <label for="stds_number_of_diagnosis">STDs: Number of Diagnosis:</label><br>
+    <input type="text" id="stds_number_of_diagnosis" name="stds_number_of_diagnosis" required><br>
+
+    <label for="dx_cin">Dx:CIN:</label><br>
+    <input type="text" id="dx_cin" name="dx_cin" required><br>
+
+    <label for="dx_hpv">Dx:HPV:</label><br>
+    <input type="text" id="dx_hpv" name="dx_hpv" required><br>
+
+    <label for="dx">Dx:</label><br>
+    <input type="text" id="dx" name="dx" required><br>
+
+    <label for="hinselmann">Hinselmann:</label><br>
+    <input type="text" id="hinselmann" name="hinselmann" required><br>
+
+    <label for="schiller">Schiller:</label><br>
+    <input type="text" id="schiller" name="schiller" required><br>
+
+    <label for="citology">Citology:</label><br>
+    <input type="text" id="citology" name="citology" required><br>
+
+    <label for="biopsy">Biopsy:</label><br>
+    <input type="text" id="biopsy" name="biopsy" required><br>
+
+    <input type="submit" value="Predict" class="btn btn-primary">
+</form>
+</div>
+{% endblock %}

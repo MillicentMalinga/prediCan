@@ -1,0 +1,56 @@
+{% extends 'index.html' %}
+ {% block content %} 
+
+    <h1>Lung Cancer Predictor</h1>
+    <div class="container">
+    <form action="/lung_cancer_predictor" method="post" class="form">
+        <p class="text-warning fw-bold">
+            These are the features that will be used to predict lung cancer.
+            <span class="text-warning fw-bold text-danger">
+                They all require a yes or no answer. 1 for No and 2 for Yes. 
+            </span>
+            
+        </p>
+        <div class="form-group d-flex flex-column gap-2 w-50 mb-3">
+        <label for="pressure">
+            Peer Pressure
+        </label>
+            <input type="text" id="pressure" name="pressure" placeholder="Were you pressured into smoking?" required>
+      
+    </div>
+    <div class="form-group d-flex flex-column gap-2 w-50 mb-3">
+        <label for="allergy">Allergy</label>
+     <input type="text" id="allergy" name="allergy" placeholder="Do you have any allergies" required>
+        
+    </div>
+    <div class="form-group d-flex flex-column gap-2 w-50 mb-3">
+        <label for="alcohol">
+            alcohol consumption  </label>   
+     <input type="text" id="alcohol" name="alcohol" placeholder="Do you consume alcohol?" required>
+                    
+</div>
+<div class="form-group d-flex flex-column gap-2 w-50 mb-3">
+                    <label for="coughing">
+                        Coughing       </label>      
+                         <input type="text" name="coughing" id="coughing" placeholder="Do you have a persistent cough?" required>
+                    </div>
+
+                    <div class="form-group d-flex flex-column gap-2 w-50 mb-3">
+
+                                <label for="swallowing">
+                                    Swallowing  </label>           <input type="text" name="swallowing" id="swallowing" placeholder="Do you have a swallowing difficulty?" required>
+                                </div>
+
+            <button class="btn btn-primary">Predict</button>
+    </form>
+    Prediction: {{ prediction }}
+    Accuracy: {{ accuracy }}
+
+
+    <p class="text-danger font-bold">
+        Please note that the engineer of this model highly doubts its accuracy. Especially the features chosen. 
+        The model was trained with less than a 100 data points and can not be trusted. 
+        This was merely developed for educational purposes. 
+    </p>
+</div>
+ {% endblock %}
