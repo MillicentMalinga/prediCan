@@ -26,3 +26,14 @@ Contributions to improve the application are welcome. Please submit a pull reque
 
 ## Disclaimer
 This application is intended for research purposes only. It should not be used as a substitute for professional medical advice, diagnosis, or treatment. Always seek the advice of your physician or other qualified health provider with any questions you may have regarding a medical condition.
+
+
+### RUNNING THE MODEL
+```
+pip install -r requirements.txt
+```
+
+```
+python app.py
+```
+This will take you to the app. 
