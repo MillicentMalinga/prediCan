@@ -11,3 +11,4 @@ scipy==1.11.4
 threadpoolctl==3.2.0
 Werkzeug
 xgboost==2.0.2
+Gunicorn
