@@ -7,50 +7,50 @@ app = Flask(__name__)
 
 ## Unpacking the models
 breast_model = pickle.load(open('breast_model.pkl', 'rb'))
-lung_model = pickle.load(open('lung_model.pkl', 'rb'))
+# lung_model = pickle.load(open('lung_model.pkl', 'rb'))
 cervical_model = pickle.load(open('cervical_model.pkl', 'rb'))
 prostate_model = pickle.load(open('prostate_model.pkl', 'rb'))
 cervical_scaler = pickle.load(open('cervical_scaler.pkl', 'rb'))
 breast_scaler = pickle.load(open('breast_scaler.pkl', 'rb'))
 prostate_scaler = pickle.load(open('prostate_scaler.pkl', 'rb'))
-lung_scaler = pickle.load(open('lung_scaler.pkl', 'rb'))
+# lung_scaler = pickle.load(open('lung_scaler.pkl', 'rb'))
 
 @app.route('/')
 def main():
     return render_template('index.html')
 
-@app.route('/lung_cancer_predictor', methods=['POST', 'GET'])
-def lung():
-    if request.method == 'GET':
-        return render_template('lung.html', **locals())
+# @app.route('/lung_cancer_predictor', methods=['POST', 'GET'])
+# def lung():
+#     if request.method == 'GET':
+#         return render_template('lung.html', **locals())
     
-    if request.method == 'POST':
-        try:
-            predictor_values = []
-            pressure = request.form.get('pressure')
-            allergies = request.form.get('allergy')
-            alcohol = request.form.get('alcohol')
-            coughing = request.form.get('coughing')
-            swallowing = request.form.get('swallowing')
+#     if request.method == 'POST':
+#         try:
+#             predictor_values = []
+#             pressure = request.form.get('pressure')
+#             allergies = request.form.get('allergy')
+#             alcohol = request.form.get('alcohol')
+#             coughing = request.form.get('coughing')
+#             swallowing = request.form.get('swallowing')
             
-            predictor_values.extend([pressure, allergies, alcohol, coughing, swallowing])
-            predictor_values = [float(i) for i in predictor_values]
-            predictor_values = np.array(predictor_values).reshape(1, -1)
+#             predictor_values.extend([pressure, allergies, alcohol, coughing, swallowing])
+#             predictor_values = [float(i) for i in predictor_values]
+#             predictor_values = np.array(predictor_values).reshape(1, -1)
 
-            predictor_values = lung_scaler.fit_transform(predictor_values)
-            result = lung_model.predict(predictor_values)
+#             predictor_values = lung_scaler.fit_transform(predictor_values)
+#             result = lung_model.predict(predictor_values)
             
-            if result ==  1:
-                prediction = 'You have a high risk of lung cancer'
-            if result == 0:
-                prediction = 'You have a low risk of lung cancer'
-            accuracy = 0.88 * 100
-        except ValueError:
-            prediction = 'Invalid input. Please enter valid numbers.'
-        except Exception as e:
-            prediction = 'An error occurred: ' + str(e)
+#             if result ==  1:
+#                 prediction = 'You have a high risk of lung cancer'
+#             if result == 0:
+#                 prediction = 'You have a low risk of lung cancer'
+#             accuracy = 0.88 * 100
+#         except ValueError:
+#             prediction = 'Invalid input. Please enter valid numbers.'
+#         except Exception as e:
+#             prediction = 'An error occurred: ' + str(e)
             
-    return render_template('lung.html', **locals())
+#     return render_template('lung.html', **locals())
 
 @app.route('/breast_cancer_predictor', methods=['POST', 'GET'])
 def breast():
